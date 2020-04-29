@@ -10,7 +10,7 @@ $error="";
             $contra,
             $_POST['pais'],
             $_POST['profe'],
-            // $_POST['edad']
+            $_POST['edad']
         );
   
         if(datos_vacio($datos)==false){
