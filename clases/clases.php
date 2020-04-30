@@ -18,7 +18,9 @@ class usuario{
     {
         $con = conexion("root","");
         $consulta =$con->prepare("select * from usuarios where usuario = :usuario");   
-        $consulta->execute(array('usuario'=>$usuario));
+        $consulta->execute(array(':usuario' => $usuario));
+        $resultado=$consulta->fetchAll();
+        return $resultado;
     }
 }
 ?>

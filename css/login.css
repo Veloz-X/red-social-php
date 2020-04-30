@@ -10,7 +10,7 @@ body{
 .contenedor-from{
     width: 350px;
     padding: 40px 30px;
-    background:rgb(235, 235, 205,07);
+    background:rgba(235, 235, 205,0.7);
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
