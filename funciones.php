@@ -11,7 +11,7 @@ function conexion($usuario,$contra){
 
     }
 }
-// FUNCION DAÑADA
+// FUNCION ARREGLADA
 function datos_vacios($datos)
 {
     $vacio = false;
@@ -24,7 +24,7 @@ function datos_vacios($datos)
             break;
         }
     }
-    // return $vacio;
+    return $vacio;
 }
 function limpiar($datos){
     $tam = count($datos);
