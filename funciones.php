@@ -3,24 +3,28 @@
 function conexion($usuario,$contra){
     try{
         $con= new PDO('mysql:host=localhost;dbname=red_social',$usuario,$contra);
+        // echo "Base de datos conectada";
         return $con;
-        echo "Base de datos conectada";
+        
     }catch(PDOException $e){
         return $e->getMessage();
 
     }
 }
-
-function datos_vacio($datos){
+// FUNCION DAÑADA
+function datos_vacios($datos)
+{
     $vacio = false;
     $tam = count($datos);
-    for($c=0; $c<$tam; $c++){
-        if(empty($datos[$c])){
+    for($c=0; $c<$tam; $c++)
+    {
+        if(empty($datos[$c]))
+        {
             $vacio =true;
             break;
         }
-
     }
+    // return $vacio;
 }
 function limpiar($datos){
     $tam = count($datos);

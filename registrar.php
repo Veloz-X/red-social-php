@@ -1,6 +1,6 @@
 <?php 
 require('funciones.php');
-require('clases/clases.php');
+// require('clases/clases.php');
 $error="";
     if(isset($_POST['registrar']))
     {   
@@ -14,21 +14,28 @@ $error="";
             $_POST['edad']
         );
   
-        if(datos_vacio($datos)==false){
+        if(datos_vacios($datos)==false){
             $datos = limpiar($datos);
-            if(strpos($datos[1]," ")==false)
-            {
-                if (empty(usuario::verificar($datos[1])))
-                {
-                    usuario :: registrar($datos);
-                }else
-                {
-                    $error .="Usuario ya existe";
-                }
-            }else
-            {
-                $error .="usuario con espacios";
-            }
+            echo $datos[0]."<br>";
+            echo $datos[1]."<br>";
+            echo $datos[2]."<br>";
+            echo $datos[3]."<br>";
+            echo $datos[4]."<br>";
+            echo $datos[5]."<br>";
+
+            // if(strpos($datos[1]," ")==false)
+            // {
+            //     if (empty(usuario::verificar($datos[1])))
+            //     {
+            //         usuario :: registrar($datos);
+            //     }else
+            //     {
+            //         $error .="Usuario ya existe";
+            //     }
+            // }else
+            // {
+            //     $error .="usuario con espacios";
+            // }
         }else
         {
             $error ="Hay campo vacio";
@@ -49,12 +56,12 @@ $error="";
 <body>
     <div class="contenedor-from">
     <h1>Registrar</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-    <input class="input-control" type="text" name="nombre" placeholder="Nombre" >
-    <input class="input-control" type="text" name="usuario" placeholder="Usuario">
-    <input class="input-control" type="password" name="contra" placeholder="Contraseña">
-    <input class="input-control" type="text" name="pais" placeholder="Pais">
-    <input class="input-control" type="text" name="profe" placeholder="Profesion">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+        <input class="input-control" type="text" name="nombre" placeholder="Nombre" >
+        <input class="input-control" type="text" name="usuario" placeholder="Usuario">
+        <input class="input-control" type="password" name="contra" placeholder="Contraseña">
+        <input class="input-control" type="text" name="pais" placeholder="Pais">
+        <input class="input-control" type="text" name="profe" placeholder="Profesion">
     
     <!-- SELECCION EDAD -->
     <p id="edad">Edad:
@@ -62,7 +69,6 @@ $error="";
         <?php for($c=1;$c<=100;$c++): ?>
         <option value="<?php echo $c; ?> "><?php echo $c; ?></option>
         <?php endfor; ?>
-
     </select> 
     </p>
     <input type="submit" value="Registrar" name="registrar" class="log-btn">
