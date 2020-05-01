@@ -1,5 +1,5 @@
 <?php 
-class usuario{
+class usuarios{
     function registrar($datos)
     {
         $con = conexion("root","");

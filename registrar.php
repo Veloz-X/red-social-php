@@ -1,6 +1,6 @@
 <?php 
 require('funciones.php');
-// require('clases/clases.php');
+require('clases/clases.php');
 $error="";
     if(isset($_POST['registrar']))
     {   
@@ -16,29 +16,23 @@ $error="";
   
         if(datos_vacios($datos)==false){
             $datos = limpiar($datos);
-            echo $datos[0]."<br>";
-            echo $datos[1]."<br>";
-            echo $datos[2]."<br>";
-            echo $datos[3]."<br>";
-            echo $datos[4]."<br>";
-            echo $datos[5]."<br>";
 
-            // if(strpos($datos[1]," ")==false)
-            // {
-            //     if (empty(usuario::verificar($datos[1])))
-            //     {
-            //         usuario :: registrar($datos);
-            //     }else
-            //     {
-            //         $error .="Usuario ya existe";
-            //     }
-            // }else
-            // {
-            //     $error .="usuario con espacios";
-            // }
+            if(strpos($datos[1]," ")==false)
+            {
+                if (empty(usuarios::verificar($datos[1])))
+                {
+                    usuarios::registrar($datos);
+                }else
+                {
+                    $error .="Usuario ya existe";
+                }
+            }else
+            {
+                $error .="usuario con espacios";
+            }
         }else
         {
-            $error ="Hay campo vacio";
+            $error .="Hay campo vacio";
         }
 
     }
