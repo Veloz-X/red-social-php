@@ -17,11 +17,15 @@ $error="";
         if(datos_vacios($datos)==false){
             $datos = limpiar($datos);
 
+            // foreach($datos as $datos2){
+            //     echo $datos2."<br>";
+            // }
             if(strpos($datos[1]," ")==false)
             {
                 if (empty(usuarios::verificar($datos[1])))
                 {
                     usuarios::registrar($datos);
+                    // die;
                 }else
                 {
                     $error .="Usuario ya existe";

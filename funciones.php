@@ -4,7 +4,6 @@ function conexion($usuario,$contra){
     try{
         $con= new PDO('mysql:host=localhost:3308;dbname=red_social',$usuario,$contra);
         return $con;
-        
     }catch(PDOException $e){
         return $e->getMessage();
 
